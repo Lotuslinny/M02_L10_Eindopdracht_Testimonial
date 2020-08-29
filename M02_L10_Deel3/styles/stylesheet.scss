@@ -1,0 +1,278 @@
+$first-color: #ffffff;
+$second-color: #c3cfe2;
+$button-width: 9em;
+$button-height: 5em;
+$brand-font-family:"Font Awesome 5 Brands";
+$brand-font-weight: 400;
+$brand-font-style: normal;  
+$button-hover-width: 14em;
+$button-hover-left: 20em;
+$button-hover-transition: left 0.5ms ease-in;
+
+@mixin button{
+  width: $button-width;
+  height: $button-height;
+}
+
+@mixin brand {
+  font-family: $brand-font-family;
+  font-weight: $brand-font-weight;
+  font-style: $brand-font-style; 
+}
+
+@mixin button-hover {
+  width: $button-hover-width;
+  left: $button-hover-left;
+  transition: $button-hover-transition;
+}
+
+body {
+  display: inline-block;
+  background-color: $second-color;
+  position: absolute;
+  height:100%;
+  font-family: "Roboto", sans-serif;
+}
+ .header {
+   margin-left: 10em; 
+   margin-top: 5em;
+  
+  }
+
+  .nav {
+    position: fixed;
+    z-index: 4;
+    right: 0;  
+  }
+
+.nav__ul {
+  width: 95%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;   
+}
+
+.nav__button-laptop {
+  background-color: #e17b77;
+  @include  button;
+}
+.nav__button-twitter {
+  background-color: #00aced;
+  @include  button;
+}
+
+.nav__button-linkedin {
+  background-color: #007bb6;
+  @include  button;
+}
+.nav__button-facebook {
+  background-color: #3b5998;
+  @include  button;
+ 
+}
+.nav__button-github {
+  background-color:  #333;
+  @include  button; 
+}
+
+.nav__fa-laptop-code::before {
+    content: "\f5fc";
+    font-family:"Font Awesome 5 Free";
+    font-weight: 900; 
+    font-style: normal;  
+}
+.nav__fa-twitter::before {
+    content: "\f099";
+    @include brand;
+}    
+
+.nav__fa-linkedin-in::before {
+    content: "\f0e1";
+    @include brand;
+}
+
+.nav__fa-facebook-f::before {
+    content: "\f39e";
+    @include brand;
+}
+
+.nav__fa-github::before {
+    content: "\f09b";
+    @include brand;  
+}
+
+.nav__button-laptop--hover:hover {
+  @include button-hover;
+  
+}
+.nav__button-twitter--hover:hover {
+  @include button-hover;
+}
+.nav__button-linkedin--hover:hover {
+  @include button-hover;
+}
+.nav__button-facebook--hover:hover {
+  @include button-hover;
+}
+.nav__button-github--hover:hover {
+  @include button-hover;
+}
+
+.nav__button-laptop:hover{ 
+  &.fa-laptop-code {
+  margin-right: 20em;
+  transition: 0ms ease-in; 
+}
+}
+
+.nav__button-laptop:hover {
+  &.fa-twitter {
+  margin-right: 20em;
+  transition: 0ms ease-in;
+}
+}
+
+.nav__button-laptop:hover {
+  &.fa-linked-in {
+  margin-right: 20em;
+  transition: 0ms ease-in; 
+  }
+}
+.nav__button-laptop:hover {
+  &.fa-facebook-f{
+  margin-right: 20em;
+  transition: 0ms ease-in; 
+  }
+}
+.nav__button-laptop:hover {
+  &.fa-github {
+  margin-right: 20em;
+  transition: 0ms ease-in; 
+  }
+}
+
+.testimonial {
+  display: grid;
+  height:100%;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+}
+
+.box-1 {
+  position: relative;
+  width: 18em;
+  height: 32em;
+  background-color: $second-color;
+  margin: 1em;
+  z-index: initial;
+}
+
+.box-1__image {
+  position: absolute;
+  width: 6em ;
+  height: 7em;
+  border-radius: 50%;
+  border: 5px solid $first-color;
+  margin-left: 6em;
+  margin-top: 20em;
+  z-index: 2;
+  }
+
+.box-1__text {
+  position: absolute;
+  color: #696969;
+  height: 20em;
+  background-color: $first-color;
+  padding: 1.5em;
+  margin: 1em 1em;
+  border-radius: 20px 20px 0px 0px;
+  box-shadow: 10px 10px 5px rgb(153, 140, 148);
+  font-weight: bold;
+  z-index: 1;
+
+}
+.box-1__text-bottom {
+  position: absolute;
+  width: 16em;
+  height: 7em;
+  background-color:#686de0;
+  margin-left: 1em;  
+  margin-top: 24em;
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: 10px 10px 5px grey;
+  z-index: 1;
+}
+
+.box-1__name{
+  color: $first-color;
+  font-weight: bold;
+  margin-top: 3.6em;
+  margin-left: 3.6em;  
+}
+
+.box-1__website {
+  color: $second-color;
+  font-weight: bold;
+  margin-left: 7em;
+  font-size: 0.7em;
+}
+
+.box-1__button {
+  visibility: hidden;
+  position: absolute;
+  margin-left: 8em;
+  margin-top: 20em;
+  z-index: 3;
+  transition-duration: 0ms;
+}
+
+.box-1 {
+  &:hover {
+  opacity: 0.5;
+}
+}
+
+.box-1:hover .box-1__button {
+  visibility: visible;
+  background-color: #686de0;
+}
+
+@media (min-width: 768px) {
+
+.testimonial {
+  display: grid;
+  height:100%;
+  grid-column-gap: 10em;
+  grid-template-columns: 200px auto;
+}   
+}
+
+@media (min-width: 1024px) {
+    
+  .testimonial {
+    display: grid;
+    height:100%;
+    grid-column-gap: 9em;
+    grid-template-columns: 200px 200px auto;   
+  }       
+  }
+
+  @media (min-width: 1440px) {
+    
+    .testimonial {
+      display: grid;
+      height:100%;
+      grid-column-gap: 10em;
+      grid-template-columns: 200px 200px 200px auto;   
+    }       
+    }
+    @media (min-width: 1800px) {
+    
+      .testimonial {
+        display: grid;
+        height:100%;
+        grid-column-gap: 10em;
+        grid-template-columns: 200px 200px 200px 200px auto;   
+      }       
+      }
